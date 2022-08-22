@@ -1,0 +1,106 @@
+/* keyframes */
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+@keyframes hideCard {
+  0%,
+  70% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes hideImage {
+  0%,
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  row-gap: 20px;
+}
+.title {
+  text-transform: uppercase;
+  background: linear-gradient(
+    50deg,
+    rgba(255, 255, 255, 1) 23%,
+    rgba(7, 6, 59, 1) 55%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(58, 63, 135, 1) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 190px;
+}
+
+.title {
+  color: #fff;
+  z-index: 1;
+  font-size: 50px;
+  font-weight: 900;
+}
+#tsparticles {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+/* carts */
+.carts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1em;
+  max-width: 600px;
+  width: 100%;
+  height: 600px;
+  position: relative;
+  z-index: 10;
+}
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 5px #fff;
+  cursor: pointer;
+  transform: rotateY(180deg);
+  animation: 1s hideCard linear;
+  transition: all 0.3s;
+}
+.cart.active {
+  transform: rotateY(0);
+}
+.cart img {
+  max-width: 80%;
+  max-height: 80%;
+  transform: scale(0);
+  transition: all 0.3s;
+  animation: 1s hideImage linear;
+}
+.cart.active img {
+  transform: scale(1);
+}

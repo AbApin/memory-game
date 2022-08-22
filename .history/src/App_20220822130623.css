@@ -1,0 +1,133 @@
+/* keyframes */
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+@-webkit-keyframes rotate-diagonal-1 {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+            transform: rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, -360deg);
+            transform: rotate3d(1, 1, 0, -360deg);
+  }
+}
+@keyframes rotate-diagonal-1 {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+            transform: rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, -360deg);
+            transform: rotate3d(1, 1, 0, -360deg);
+  }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  row-gap: 20px;
+}
+.title {
+  text-transform: uppercase;
+  background: linear-gradient(
+    50deg,
+    rgba(255, 255, 255, 1) 23%,
+    rgba(7, 6, 59, 1) 55%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(58, 63, 135, 1) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 190px;
+}
+
+.title {
+  color: #fff;
+  z-index: 1;
+  font-size: 50px;
+  font-weight: 900;
+}
+#tsparticles {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+/* carts */
+.carts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1em;
+  max-width: 600px;
+  width: 100%;
+  height: 600px;
+  position: relative;
+  z-index: 10;
+}
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 5px #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.cart img {
+  max-width: 80%;
+  max-height: 80%;
+  transform: scale(0);
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+.cart.active {
+  -webkit-animation: rotate-diagonal-1 0.4s linear both;
+	        animation: rotate-diagonal-1 0.4s linear both;
+}
+.cart.correct {
+  background-color: green;
+}
+.cart.wrong {
+  background-color: red;
+}
+.cart.active img {
+  transform: scale(1);
+}
+
+/* new-game*/
+.new-game-btn{
+  display: inline-block;
+  background: #fff;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 30px;
+  
+}
